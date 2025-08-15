@@ -39,5 +39,5 @@ export default defineConfig({
     }
   },
   output: "server",
-  adapter: vercel({ mode: "serverless" }),
+  adapter: vercel(),
 });

@@ -252,7 +252,7 @@ const secondaryCTA = { text: 'Book a consultation', href: '/contact?consultation
     
     <!-- Mobile CTAs -->
     <div class="p-4 space-y-3 border-t border-slate-200">
-      <Button href={secondaryCTA.href} variant="outline" className="w-full justify-center">
+      <Button href={secondaryCTA.href} variant="secondary" className="w-full justify-center">
         {secondaryCTA.text}
       </Button>
       <Button href={primaryCTA.href} variant="primary" className="w-full justify-center">
@@ -270,11 +270,11 @@ const secondaryCTA = { text: 'Book a consultation', href: '/contact?consultation
     const mobileOverlay = document.getElementById('mobile-menu-overlay');
     
     if (!trigger || !menuRoot) return;
-    let lastFocus = null;
+    let lastFocus: HTMLElement | null = null;
 
     const focusableSelector = 'a[href], button:not([disabled]), [role="button"], summary, input, select, textarea';
 
-    function trapFocus(e) {
+    function trapFocus(e: KeyboardEvent) {
       if (!(menuRoot instanceof HTMLElement)) return;
       if (!menuRoot.classList.contains('hidden')) {
         const focusables = Array.from(menuRoot.querySelectorAll(focusableSelector)).filter(el => el instanceof HTMLElement && el.offsetParent !== null);
@@ -284,10 +284,10 @@ const secondaryCTA = { text: 'Book a consultation', href: '/contact?consultation
         if (e.key === 'Tab') {
           if (e.shiftKey && document.activeElement === first) {
             e.preventDefault();
-            last.focus();
+            (last as HTMLElement).focus();
           } else if (!e.shiftKey && document.activeElement === last) {
             e.preventDefault();
-            first.focus();
+            (first as HTMLElement).focus();
           }
         }
         if (e.key === 'Escape') closeMenu();
@@ -296,7 +296,7 @@ const secondaryCTA = { text: 'Book a consultation', href: '/contact?consultation
 
     function openMenu() {
       if (!(menuRoot instanceof HTMLElement) || !(trigger instanceof HTMLElement)) return;
-      lastFocus = document.activeElement;
+      lastFocus = document.activeElement as HTMLElement;
       menuRoot.classList.remove('hidden');
       menuRoot.classList.remove('translate-x-full');
       if (mobileOverlay) mobileOverlay.classList.remove('hidden');
@@ -304,7 +304,7 @@ const secondaryCTA = { text: 'Book a consultation', href: '/contact?consultation
       menuRoot.removeAttribute('aria-hidden');
       document.body.classList.add('overflow-hidden','touch-none');
       const firstLink = menuRoot.querySelector('a, button, summary');
-      if (firstLink && 'focus' in firstLink) setTimeout(() => firstLink.focus(), 10);
+      if (firstLink && 'focus' in firstLink) setTimeout(() => (firstLink as HTMLElement).focus(), 10);
       document.addEventListener('keydown', trapFocus);
     }
 
@@ -316,7 +316,7 @@ const secondaryCTA = { text: 'Book a consultation', href: '/contact?consultation
       menuRoot.setAttribute('aria-hidden','true');
       document.body.classList.remove('overflow-hidden','touch-none');
       document.removeEventListener('keydown', trapFocus);
-      if (lastFocus && 'focus' in lastFocus && typeof lastFocus.focus === 'function') setTimeout(() => lastFocus.focus(), 10);
+      if (lastFocus && 'focus' in lastFocus && typeof lastFocus.focus === 'function') setTimeout(() => lastFocus!.focus(), 10);
       setTimeout(() => {
         if (menuRoot.classList.contains('translate-x-full')) {
           menuRoot.classList.add('hidden');
@@ -352,7 +352,7 @@ const secondaryCTA = { text: 'Book a consultation', href: '/contact?consultation
     });
 
     document.addEventListener('click', (e) => {
-      if (mobileSearch && !mobileSearch.classList.contains('hidden') && !mobileSearch.contains(e.target)) mobileSearch.classList.add('hidden');
+      if (mobileSearch && !mobileSearch.classList.contains('hidden') && !mobileSearch.contains(e.target as Node)) mobileSearch.classList.add('hidden');
     });
 
     document.addEventListener('keydown', (e) => {
