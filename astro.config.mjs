@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import netlify from "@astrojs/netlify";
+import vercel from "@astrojs/vercel"; 
 import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
 import keystatic from "@keystatic/astro";
@@ -15,9 +15,8 @@ const __dirname = dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
-  // The `site` property specifies the base URL for your site.
-  // Be sure to update this to your own domain (e.g., "https://yourdomain.com") before deploying.
-  site: "https://your-site-name.netlify.app",
+
+  site: "https://your-site-name.vercel.app", 
   prefetch: true,
   trailingSlash: "never",
   experimental: {
@@ -40,5 +39,5 @@ export default defineConfig({
     }
   },
   output: "server",
-  adapter: netlify(),
+  adapter: vercel({ mode: "serverless" }),
 });
