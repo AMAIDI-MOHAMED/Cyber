@@ -1,0 +1,42 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="url(#gradient1)"/>
+  
+  <!-- Bank building -->
+  <rect x="150" y="120" width="100" height="80" fill="#1e40af" rx="8"/>
+  <rect x="170" y="140" width="20" height="20" fill="#3b82f6"/>
+  <rect x="210" y="140" width="20" height="20" fill="#3b82f6"/>
+  <rect x="170" y="170" width="20" height="20" fill="#3b82f6"/>
+  <rect x="210" y="170" width="20" height="20" fill="#3b82f6"/>
+  
+  <!-- Columns -->
+  <rect x="140" y="110" width="8" height="100" fill="#1e40af"/>
+  <rect x="252" y="110" width="8" height="100" fill="#1e40af"/>
+  
+  <!-- Roof -->
+  <path d="M140 110 L200 80 L260 110" stroke="#1e40af" stroke-width="4" fill="none"/>
+  
+  <!-- Money symbols -->
+  <circle cx="80" cy="80" r="25" fill="#10b981" opacity="0.8"/>
+  <text x="80" y="88" text-anchor="middle" fill="white" font-family="Arial" font-size="20" font-weight="bold">€</text>
+  
+  <circle cx="320" cy="80" r="25" fill="#10b981" opacity="0.8"/>
+  <text x="320" y="88" text-anchor="middle" fill="white" font-family="Arial" font-size="20" font-weight="bold">$</text>
+  
+  <!-- Digital elements -->
+  <rect x="50" y="200" width="60" height="40" fill="#6366f1" rx="6"/>
+  <text x="80" y="225" text-anchor="middle" fill="white" font-family="Arial" font-size="12">FinTech</text>
+  
+  <rect x="290" y="200" width="60" height="40" fill="#6366f1" rx="6"/>
+  <text x="320" y="225" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Digital</text>
+  
+  <!-- Security shield -->
+  <path d="M200 40 L220 30 L240 40 L240 60 L200 60 Z" fill="#ef4444" opacity="0.8"/>
+  <text x="220" y="55" text-anchor="middle" fill="white" font-family="Arial" font-size="12" font-weight="bold">🔒</text>
+  
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
